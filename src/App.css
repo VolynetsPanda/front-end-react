@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.block{
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: fixed;
+  top: 0;
+}
