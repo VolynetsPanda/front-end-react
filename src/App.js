@@ -1,21 +1,25 @@
 import './App.css';
+import {Routes, Route} from "react-router-dom";
+import Home from "./components/Home";
+import Header from "./components/Header";
+import About from "./components/About";
+import ErrorPage from "./components/ErrorPage";
+import Users from "./components/Users";
+import Profile from "./components/Profile";
+import Player from "./components/Player";
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+            <Header/>
+            <Routes>
+                <Route exact path='/' element={<Home/>}/>
+                <Route path='/about' element={<About/>}/>
+                <Route exact path='/users' element={<Users/>}/>
+                <Route exact path='/player' element={<Player/>}/>
+                <Route exact path='/users/:id' element={<Profile/>}/>
+                <Route path='*' element={<ErrorPage/>}/>
+            </Routes>
         </div>
     );
 }
