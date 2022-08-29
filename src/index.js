@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import App from "./app";
 import ReactDOM from 'react-dom';
-import { ContextUser, ContextTask } from "store/context";
+import {Provider} from "react-redux";
+import store from "store/index";
 
 function Init() {
-    const [user, setUser] = useState({})
-    const [task, setTask] = useState([])
     return (
         <React.StrictMode>
-            <ContextUser.Provider value={{user, setUser}}>
-                <ContextTask.Provider value={{task, setTask}}>
-                    <App/>
-                </ContextTask.Provider>
-            </ContextUser.Provider>
+            <Provider store={store}>
+                <App/>
+            </Provider>
         </React.StrictMode>
     )
 }

@@ -1,16 +1,33 @@
-import React, {useEffect, useContext} from "react";
-import {ContextUser} from "store/context";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 const Header = () => {
-    const {user, setUser} = useContext(ContextUser)
-        useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon/1')
+    const dispatch = useDispatch()
+    const {users} = useSelector(state => state.users)
+
+    // const {user, setUser} = useContext(ContextUser)
+    useEffect(() => {
+        fetch('https://pokeapi.co/api/v2/pokemon')
             .then(res => res.json())
-            .then(res => setUser(res))
+            .then(res => {
+                dispatch({
+                    type: "ADD_USER",
+                    payload: res.results
+                })
+            })
     }, [])
+
+    const removeUser = (name) => {
+        dispatch({
+            type: "REMOVE_USER",
+            payload: name
+        })
+    }
     return (
         <header>
-            <h2>Test</h2>
+            {users.length && users?.map((elem, i) =>
+                <p key={i} onClick={() => removeUser(elem.name)}>{elem.name}</p>
+            )}
         </header>
     )
 }

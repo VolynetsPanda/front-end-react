@@ -50,6 +50,7 @@ module.exports = {
             helpers: path.resolve(__dirname, 'src/helpers'),
             assets: path.resolve(__dirname, 'src/assets'),
             store: path.resolve(__dirname, 'src/store'),
+            modules: path.resolve(__dirname, 'src/modules'),
         }
     },
     plugins: [
