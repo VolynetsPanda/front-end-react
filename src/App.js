@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import './App.css';
 import {Routes, Route} from "react-router-dom";
-import Home from "./components/Home";
+import Home from "./views/Home";
 import Header from "./components/Header";
-import About from "./components/About";
-import ErrorPage from "./components/ErrorPage";
-import Users from "./components/Users";
-import Profile from "./components/Profile";
-import Player from "./components/Player";
+import About from "./views/About";
+import ErrorPage from "./views/ErrorPage";
+import Users from "./views/Users";
+import Profile from "./views/Profile";
+import Player from "./views/Player";
 
 function App() {
     return (
