@@ -8,7 +8,7 @@ function AddFile() {
     const onFileInputChange = (event) => {
         const { files } = event.target;
         console.log('testing files => ', files)
-        decodeHelper(files)
+        decodeHelper(files[0])
     }
     const onTargetClick = () => {
         fileInputRef.current.click()
